@@ -260,14 +260,14 @@ class PortfolioContractTests(unittest.TestCase):
         ):
             self.assertIn(phrase, text, f"Home page must name {phrase!r}")
 
-    def test_home_orbital_figure_explains_the_three_domains(self):
+    def test_home_dsb_logo_explains_the_professional_arc(self):
         page = parse_page("index.html")
         text = page.visible_text
         for phrase in ("cosmology", "cryptography", "software"):
             self.assertIn(phrase, text, f"Home orbital figure must name {phrase!r}")
         self.assertTrue(
-            any(attrs.get("data-orbital-logo") == "true" for attrs in page.tags("svg")),
-            "Home needs an explicit accessible orbital logo graphic",
+            any(attrs.get("data-dsb-logo") == "true" for attrs in page.tags("svg")),
+            "Home needs an explicit accessible dsb logo graphic",
         )
 
     def test_profile_contains_the_complete_professional_timeline(self):
@@ -286,6 +286,7 @@ class PortfolioContractTests(unittest.TestCase):
     def test_projects_features_only_the_current_named_work(self):
         text = parse_page("projects.html").visible_text
         for project in (
+            "entropy observatory",
             "agent trust",
             "openmls qrng",
             "portable skills",
@@ -294,6 +295,7 @@ class PortfolioContractTests(unittest.TestCase):
             "post-quantum cryptography course",
         ):
             self.assertIn(project, text, f"Projects page must feature {project!r}")
+        self.assertNotIn("quside-curand", text, "Projects page must not feature employer-specific Quside-cuRAND work")
         for excluded in ("qkd-kem-bench", "qkd-etsi-api-c-wrapper", "galaxyclassifier", "rust-hoex"):
             self.assertNotIn(excluded, text, f"Projects page must not feature obsolete work {excluded!r}")
 
