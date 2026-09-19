@@ -19,42 +19,38 @@
   </div></header>
   <main id="main-content">
     <section class="page-intro container" aria-labelledby="projects-title">
-      <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Projects / Selected public work</p>
+      <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Projects / Selected work</p>
       <h1 id="projects-title">Selected work,<br><em>made concrete.</em></h1>
-      <div class="intro-bottom"><p class="prose">Professional engineering and public research projects across quantum-safe security, software systems, and scientific computing.</p><p class="intro-note">Claims stay close to the implementation.</p></div>
+      <div class="intro-bottom"><p class="prose">Software and research across cryptographic systems, quantum technologies, agent security, and scientific computing.</p><p class="intro-note">Each project makes its scope and limits explicit.</p></div>
     </section>
     <div class="container">
-      <article class="project project-featured" id="entropy-observatory" aria-labelledby="entropy-title">
-        <span class="index">01</span><div class="project-title"><h2 id="entropy-title">Entropy Observatory</h2><p class="meta">Randomness infrastructure / Python</p></div>
-        <div class="project-detail"><p>An offline Streamlit dashboard that simulates entropy sources, runs statistical health tests, and makes randomness quality visible.</p><p class="boundary">A public demo of QRNG and entropy-infrastructure monitoring; it uses simulated sources, not hardware.</p><div class="actions"><a class="text-link" href="https://github.com/dasobral/entropy-observatory">Explore Entropy Observatory <span aria-hidden="true">↗</span></a></div></div>
-      </article>
-      <article class="project" id="qkd-kem" aria-labelledby="qkd-kem-title" data-reveal>
-        <span class="index">02</span><div class="project-title"><h2 id="qkd-kem-title">QKD-KEM for TLS 1.3</h2><p class="meta">Research engineering / OpenSSL Providers</p></div>
-        <div class="project-detail"><p>Implemented and evaluated hybrid QKD/PQC key establishment, including provider integration and handshake performance analysis.</p><div class="actions"><a class="text-link" href="https://arxiv.org/abs/2503.07196">Read the paper <span aria-hidden="true">↗</span></a></div></div>
-      </article>
       <article class="project project-featured" id="agent-trust" aria-labelledby="agent-title">
-        <span class="index">03</span><div class="project-title"><h2 id="agent-title">Agent Trust</h2><p class="meta">Agent systems / Research software</p></div>
-        <div class="project-detail"><p>An experimental Rust and Python laboratory for cryptographic principals, attenuated delegation, revocation, and authorization–capability coherence.</p><p class="boundary">Research software, not production identity or authorization software.</p><div class="actions"><a class="text-link" href="https://github.com/dasobral/agent-trust">Explore Agent Trust <span aria-hidden="true">↗</span></a></div></div>
+        <span class="index">01</span><div class="project-title"><h2 id="agent-title">Agent Trust</h2><p class="meta">Agent security / Rust &amp; Python</p></div>
+        <div class="project-detail"><p>An experimental laboratory for cryptographic agent principals, attenuated delegation, revocation, and authorization–capability coherence.</p><p class="boundary">Research software for studying agent authority, not a production identity platform.</p><div class="actions"><a class="text-link" href="https://github.com/dasobral/agent-trust">Explore Agent Trust <span aria-hidden="true">↗</span></a></div></div>
+      </article>
+      <article class="project" id="pqc-auth-api" aria-labelledby="pqc-auth-title" data-reveal>
+        <span class="index">02</span><div class="project-title"><h2 id="pqc-auth-title">PQC Auth API</h2><p class="meta">Applied cryptography / Python &amp; Rust</p></div>
+        <div class="project-detail"><p>A reference authentication system that enrolls ML-DSA credentials, verifies signed server challenges through pluggable providers, and issues conventional sessions.</p><p class="boundary">A security reference implementation with explicit threat-model and recovery boundaries, not a production identity provider.</p></div>
       </article>
       <article class="project" id="openmls-qrng" aria-labelledby="qrng-title" data-reveal>
-        <span class="index">04</span><div class="project-title"><h2 id="qrng-title">OpenMLS QRNG</h2><p class="meta">Quantum randomness / Rust library</p></div>
-        <div class="project-detail"><p>A Rust bridge that supplies QRNG Open API entropy to OpenMLS through its <code>OpenMlsRand</code> interface, with TLS/mTLS modes and fail-closed handling.</p><div class="actions"><a class="text-link" href="https://github.com/dasobral/openmls-qrand">Explore OpenMLS QRNG <span aria-hidden="true">↗</span></a></div></div>
+        <span class="index">03</span><div class="project-title"><h2 id="qrng-title">OpenMLS QRNG</h2><p class="meta">Quantum randomness / Rust</p></div>
+        <div class="project-detail"><p>A reusable bridge from the QRNG Open API to OpenMLS randomness, with TLS/mTLS transport, health monitoring, and fail-closed entropy retrieval.</p><p class="boundary">It replaces the OpenMLS randomness interface, not every randomness path in the cryptographic stack.</p><div class="actions"><a class="text-link" href="https://github.com/dasobral/openmls-qrand">Explore OpenMLS QRNG <span aria-hidden="true">↗</span></a></div></div>
       </article>
       <article class="project" id="portable-skills" aria-labelledby="skills-title" data-reveal>
-        <span class="index">05</span><div class="project-title"><h2 id="skills-title">Portable Skills</h2><p class="meta">Developer tools / Skills &amp; plugins</p></div>
-        <div class="project-detail"><p>A normalized source for Agent Skills and Plugins, with adapters and validation tooling for different developer environments.</p><div class="actions"><a class="text-link" href="https://github.com/dasobral/skills">Explore Portable Skills <span aria-hidden="true">↗</span></a></div></div>
-      </article>
-      <article class="project" id="codex-inspector" aria-labelledby="inspector-title" data-reveal>
-        <span class="index">06</span><div class="project-title"><h2 id="inspector-title">Codex Inspector</h2><p class="meta">Observability / Local-first tooling</p></div>
-        <div class="project-detail"><p>Local process discovery and redacted SQLite event storage for inspecting active Codex CLI sessions.</p><div class="actions"><a class="text-link" href="https://github.com/dasobral/codex-inspector">Explore Codex Inspector <span aria-hidden="true">↗</span></a></div></div>
+        <span class="index">04</span><div class="project-title"><h2 id="skills-title">Portable Skills</h2><p class="meta">Agent tooling / Python</p></div>
+        <div class="project-detail"><p>A portable source of Agent Skills and Plugins, with adapters that preserve one instruction set across different coding environments.</p><div class="actions"><a class="text-link" href="https://github.com/dasobral/skills">Explore Portable Skills <span aria-hidden="true">↗</span></a></div></div>
       </article>
       <article class="project" id="qaoa-portfolio" aria-labelledby="qaoa-title" data-reveal>
-        <span class="index">07</span><div class="project-title"><h2 id="qaoa-title">QAOA Portfolio Optimizer</h2><p class="meta">Scientific computing / Python &amp; Rust</p></div>
-        <div class="project-detail"><p>A reproducible laboratory comparing QAOA portfolio formulations with classical baselines and benchmark visualizations.</p><div class="actions"><a class="text-link" href="https://github.com/dasobral/qaoa-portfolio">Explore QAOA Portfolio <span aria-hidden="true">↗</span></a></div></div>
+        <span class="index">05</span><div class="project-title"><h2 id="qaoa-title">QAOA Portfolio Optimizer</h2><p class="meta">Quantum optimization / Python &amp; Rust</p></div>
+        <div class="project-detail"><p>A reproducible laboratory for QAOA portfolio formulations, classical baselines, benchmark matrices, and evidence-led comparison.</p><p class="boundary">An experimental comparison framework; it makes no claim of quantum advantage.</p><div class="actions"><a class="text-link" href="https://github.com/dasobral/qaoa-portfolio">Explore QAOA Portfolio <span aria-hidden="true">↗</span></a></div></div>
+      </article>
+      <article class="project" id="predictable-darkness" aria-labelledby="darkness-title" data-reveal>
+        <span class="index">06</span><div class="project-title"><h2 id="darkness-title">A Predictable Darkness</h2><p class="meta">Independent research / Computational physics</p></div>
+        <div class="project-detail"><p>A reproducible research note on total solar eclipses over El Bierzo, combining verified ephemerides, computational reconstruction, uncertainty analysis, and publication-ready figures.</p><p class="boundary">Common-Era results are numerically verified; ancient events are treated cautiously because of Delta-T uncertainty.</p></div>
       </article>
       <article class="project" id="pqc-course" aria-labelledby="pqc-title" data-reveal>
-        <span class="index">08</span><div class="project-title"><h2 id="pqc-title">Post-Quantum Cryptography Course</h2><p class="meta">Teaching / Spanish-language material</p></div>
-        <div class="project-detail"><p>Spanish-language teaching material introducing the foundations of post-quantum cryptography.</p><div class="actions"><a class="text-link" href="https://dasobral.github.io/curso-pqc-santander/index.html" hreflang="es">Open the course <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/dasobral/curso-pqc-santander">Source <span aria-hidden="true">↗</span></a></div></div>
+        <span class="index">07</span><div class="project-title"><h2 id="pqc-title">Post-Quantum Cryptography Course</h2><p class="meta">Teaching / Spanish</p></div>
+        <div class="project-detail"><p>An accessible Spanish-language introduction to post-quantum cryptography, published with its source material.</p><div class="actions"><a class="text-link" href="https://dasobral.github.io/curso-pqc-santander/index.html" hreflang="es">Open the course <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/dasobral/curso-pqc-santander">Source <span aria-hidden="true">↗</span></a></div></div>
       </article>
     </div>
     <section class="contact-section" aria-labelledby="contact-title"><div class="container contact-inner"><div><span class="section-label">Continue exploring</span><h2 id="contact-title">The code is part of the conversation.</h2><p>Read the implementations, examine the assumptions, and get in touch.</p></div><a class="button secondary" href="https://github.com/dasobral">Find me on GitHub <span aria-hidden="true">↗</span></a></div></section>

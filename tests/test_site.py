@@ -286,18 +286,32 @@ class PortfolioContractTests(unittest.TestCase):
     def test_projects_features_only_the_current_named_work(self):
         text = parse_page("projects.html").visible_text
         for project in (
-            "entropy observatory",
             "agent trust",
+            "pqc auth api",
             "openmls qrng",
             "portable skills",
-            "codex inspector",
             "qaoa portfolio optimizer",
+            "a predictable darkness",
             "post-quantum cryptography course",
         ):
             self.assertIn(project, text, f"Projects page must feature {project!r}")
         self.assertNotIn("quside-curand", text, "Projects page must not feature employer-specific Quside-cuRAND work")
-        for excluded in ("qkd-kem-bench", "qkd-etsi-api-c-wrapper", "galaxyclassifier", "rust-hoex"):
+        for excluded in (
+            "entropy observatory",
+            "codex inspector",
+            "qkd-kem for tls",
+            "qkd-kem-bench",
+            "qkd-etsi-api-c-wrapper",
+            "galaxyclassifier",
+            "rust-hoex",
+        ):
             self.assertNotIn(excluded, text, f"Projects page must not feature obsolete work {excluded!r}")
+
+    def test_home_features_the_identity_defining_projects(self):
+        text = parse_page("index.html").visible_text
+        for project in ("agent trust", "pqc auth api", "qaoa portfolio"):
+            self.assertIn(project, text, f"Home selected work must feature {project!r}")
+        self.assertNotIn("entropy observatory", text, "Home must not feature Entropy Observatory")
 
     def test_research_includes_tracks_and_verified_publication_links(self):
         page = parse_page("research.html")
