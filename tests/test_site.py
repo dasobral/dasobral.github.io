@@ -254,11 +254,34 @@ class PortfolioContractTests(unittest.TestCase):
         for phrase in (
             "software engineer",
             "physicist",
-            "quantum-safe systems",
-            "trustworthy agents",
+            "quantum technologies",
+            "secure software",
             "scientific computing",
         ):
             self.assertIn(phrase, text, f"Home page must name {phrase!r}")
+
+    def test_home_orbital_figure_explains_the_three_domains(self):
+        page = parse_page("index.html")
+        text = page.visible_text
+        for phrase in ("cosmology", "cryptography", "software"):
+            self.assertIn(phrase, text, f"Home orbital figure must name {phrase!r}")
+        self.assertTrue(
+            any(attrs.get("data-orbital-logo") == "true" for attrs in page.tags("svg")),
+            "Home needs an explicit accessible orbital logo graphic",
+        )
+
+    def test_profile_contains_the_complete_professional_timeline(self):
+        text = parse_page("profile.html").visible_text
+        for milestone in (
+            "Quside",
+            "Indra",
+            "Pervasive Computing Laboratory",
+            "University of Geneva",
+            "2025",
+            "2024",
+            "2020–2024",
+        ):
+            self.assertIn(milestone.lower(), text, f"Profile must include career milestone {milestone!r}")
 
     def test_projects_features_only_the_current_named_work(self):
         text = parse_page("projects.html").visible_text
