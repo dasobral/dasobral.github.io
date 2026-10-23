@@ -1,60 +1,104 @@
-/* Core content and navigation also work without JavaScript. */
+/* Progressive enhancement only: every page is complete without JavaScript.
+   Without it, tab lists act as a table of contents and all panels show. */
 (() => {
   'use strict';
 
-  const toggle = document.querySelector('.nav-toggle');
-  const navigation = document.querySelector('#site-navigation');
-
-  if (toggle && navigation) {
-    const setOpen = (open) => {
-      toggle.setAttribute('aria-expanded', String(open));
-      navigation.classList.toggle('is-open', open);
-      toggle.textContent = open ? 'Close' : 'Menu';
-    };
-
-    toggle.addEventListener('click', () => {
-      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
-    });
-    navigation.addEventListener('click', (event) => {
-      if (event.target.closest('a')) setOpen(false);
-    });
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
-        setOpen(false);
-        toggle.focus();
-      }
-    });
-    window.matchMedia('(min-width: 701px)').addEventListener('change', () => setOpen(false));
-  }
-
-  // Apply enhanced navigation only after its controls are attached.
-  document.documentElement.classList.add('js');
   document.querySelectorAll('[data-year]').forEach((element) => {
     element.textContent = String(new Date().getFullYear());
   });
 
-  if (navigation && !navigation.querySelector('[aria-current="page"]')) {
-    const route = window.location.pathname.split('/').pop() || 'index.html';
-    navigation.querySelectorAll('a').forEach((link) => {
-      if (link.getAttribute('href') === route) link.setAttribute('aria-current', 'page');
+  // Follow the browser's colour scheme until the visitor picks one; then remember it.
+  // The saved choice is applied by an inline script in <head>, before first paint.
+  const toggle = document.querySelector('.theme-toggle');
+  if (toggle) {
+    const root = document.documentElement;
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const current = () => root.dataset.theme || (prefersDark.matches ? 'dark' : 'light');
+    const render = () => {
+      const next = current() === 'dark' ? 'light' : 'dark';
+      toggle.querySelector('.theme-label').textContent = next === 'dark' ? 'Dark' : 'Light';
+      toggle.setAttribute('aria-label', `Switch to ${next} theme`);
+      document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
+        meta.content = current() === 'dark' ? '#131312' : '#f5f2ea';
+      });
+    };
+
+    toggle.addEventListener('click', () => {
+      root.dataset.theme = current() === 'dark' ? 'light' : 'dark';
+      try {
+        localStorage.setItem('theme', root.dataset.theme);
+      } catch (error) {
+        // Storage can be blocked; the switch still works for this page view.
+      }
+      render();
     });
+    prefersDark.addEventListener('change', render);
+    toggle.hidden = false;
+    render();
   }
 
-  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const groups = [...document.querySelectorAll('[data-tabs]')].map((group) => {
+    const tabs = [...group.querySelectorAll('[data-tab]')];
+    const panels = tabs.map((tab) => document.getElementById(tab.hash.slice(1)));
+    const list = group.querySelector('.tab-list');
+    list.setAttribute('role', 'tablist');
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
+    tabs.forEach((tab, index) => {
+      const panel = panels[index];
+      tab.id = `tab-${panel.id}`;
+      tab.setAttribute('role', 'tab');
+      tab.setAttribute('aria-controls', panel.id);
+      panel.setAttribute('role', 'tabpanel');
+      panel.setAttribute('aria-labelledby', tab.id);
     });
-  }, { threshold: 0.08 });
 
-  document.querySelectorAll('[data-reveal]').forEach((element) => {
-    // Never hide content already in view, including fragment destinations.
-    if (element.getBoundingClientRect().top < window.innerHeight) return;
-    element.classList.add('reveal-ready');
-    observer.observe(element);
+    const select = (index, { focus = false, remember = false } = {}) => {
+      tabs.forEach((tab, i) => {
+        const selected = i === index;
+        tab.setAttribute('aria-selected', String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        panels[i].hidden = !selected;
+      });
+      if (focus) tabs[index].focus();
+      // Keep the selected tab shareable without making the page jump.
+      if (remember) history.replaceState(null, '', `#${panels[index].id}`);
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', (event) => {
+        event.preventDefault();
+        select(index, { remember: true });
+      });
+      tab.addEventListener('keydown', (event) => {
+        const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[event.key];
+        let next;
+        if (step) next = (index + step + tabs.length) % tabs.length;
+        else if (event.key === 'Home') next = 0;
+        else if (event.key === 'End') next = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        select(next, { focus: true, remember: true });
+      });
+    });
+
+    select(0);
+    document.documentElement.classList.add('js-tabs');
+    return { panels, select };
   });
+
+  // A link such as research.html#ref-8 opens the panel that holds the target.
+  const showTarget = () => {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    const target = id && document.getElementById(id);
+    if (!target) return;
+    groups.forEach(({ panels, select }) => {
+      const index = panels.findIndex((panel) => panel.contains(target));
+      if (index < 0) return;
+      select(index);
+      if (target !== panels[index]) target.scrollIntoView({ block: 'center' });
+    });
+  };
+
+  showTarget();
+  window.addEventListener('hashchange', showTarget);
 })();

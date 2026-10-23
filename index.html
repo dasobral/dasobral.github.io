@@ -3,68 +3,159 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Daniel Sobral Blanco — Software Engineer &amp; Physicist</title>
-  <meta name="description" content="Daniel Sobral Blanco is a software engineer and Ph.D. physicist building secure systems across quantum technologies, cryptography, and scientific computing.">
-  <meta name="theme-color" content="#0b121b">
+  <title>Daniel Sobral Blanco — Quantum-safe security engineer, Ph.D. physicist</title>
+  <script>try { const theme = localStorage.getItem('theme'); if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme; } catch (error) {}</script>
+  <meta name="description" content="Daniel Sobral Blanco builds quantum-safe security systems: QRNG entropy, hybrid QKD/PQC key exchange for TLS and IPsec, MLS, and verifiable authority for software agents. Application Engineer at Quside, Ph.D. in physics from the University of Geneva.">
+  <meta name="author" content="Daniel Sobral Blanco">
+  <link rel="canonical" href="https://dasobral.github.io/">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Daniel Sobral Blanco — Quantum-safe security engineer, Ph.D. physicist">
+  <meta property="og:description" content="Daniel Sobral Blanco builds quantum-safe security systems: QRNG entropy, hybrid QKD/PQC key exchange for TLS and IPsec, MLS, and verifiable authority for software agents. Application Engineer at Quside, Ph.D. in physics from the University of Geneva.">
+  <meta name="theme-color" content="#f5f2ea" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#131312" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/main.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Daniel Sobral Blanco",
+    "url": "https://dasobral.github.io/",
+    "email": "mailto:dasobral93@gmail.com",
+    "jobTitle": "Application Engineer",
+    "worksFor": { "@type": "Organization", "name": "Quside" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "University of Geneva" },
+      { "@type": "CollegeOrUniversity", "name": "Universidad Complutense de Madrid" }
+    ],
+    "knowsAbout": ["Post-quantum cryptography", "Quantum key distribution", "Quantum random number generation", "TLS", "IPsec", "Messaging Layer Security", "Rust", "C++", "Cosmology"],
+    "sameAs": [
+      "https://github.com/dasobral",
+      "https://orcid.org/0000-0001-9559-3651",
+      "https://www.linkedin.com/in/dasobral"
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Daniel Sobral Blanco — home"><span class="brand-mark" aria-hidden="true">dsb<span>.</span></span><span class="brand-name">Daniel Sobral<br>Blanco</span></a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">Menu</button>
-      <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
-        <a href="index.html" aria-current="page">Home</a><a href="profile.html">Profile</a><a href="projects.html">Projects</a><a href="research.html">Research</a><a class="nav-contact" href="mailto:dasobral93@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a>
-      </nav>
+      <a class="brand" href="index.html" aria-label="Daniel Sobral Blanco — home">dsb<span aria-hidden="true">.</span></a>
+      <nav class="site-nav" aria-label="Primary navigation"><a href="index.html" aria-current="page">About</a><a href="projects.html">Work</a><a href="research.html">Research</a></nav>
+      <div class="header-tools">
+        <button class="theme-toggle" type="button" hidden><span class="theme-icon" aria-hidden="true"></span><span class="theme-label">Theme</span></button>
+        <a class="header-mail" href="mailto:dasobral93@gmail.com">Email</a>
+      </div>
     </div>
   </header>
-  <main id="main-content">
-    <section class="hero container" aria-labelledby="hero-title">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Software engineer · Ph.D. physicist · Madrid</p>
-          <h1 id="hero-title">Building<br>secure systems<br><em>from evidence.</em></h1>
-          <p class="hero-description">I’m <strong>Daniel Sobral Blanco</strong>, an Application Engineer at Quside. I build software across quantum technologies, cryptography, and scientific computing.</p>
-          <div class="actions"><a class="button" href="projects.html">Explore my work <span aria-hidden="true">↗</span></a><a class="text-link" href="profile.html">The longer story <span aria-hidden="true">→</span></a></div>
-        </div>
-        <div class="dsb-figure">
-          <svg class="dsb-logo" data-dsb-logo="true" viewBox="0 0 360 220" role="img" aria-label="Daniel Sobral Blanco monogram, dsb dot">
-            <desc>An animated dsb monogram with a signal line resolving beneath it.</desc>
-            <path class="dsb-frame" d="M28 32V20H40M320 20H332V32M332 188V200H320M40 200H28V188" aria-hidden="true"/>
-            <text class="dsb-letter dsb-d" x="54" y="145">d</text><text class="dsb-letter dsb-s" x="132" y="145">s</text><text class="dsb-letter dsb-b" x="204" y="145">b</text><text class="dsb-dot" x="286" y="145">.</text>
-            <path class="dsb-signal" d="M54 174H286" aria-hidden="true"/><circle class="dsb-signal-dot" cx="286" cy="174" r="4" aria-hidden="true"/>
-          </svg>
-          <div class="dsb-label">DSB / PHYSICS → SECURITY ENGINEERING</div>
-          <div class="dsb-caption"><span>MODEL · BUILD · VERIFY</span><span>MADRID / 2026</span></div>
+
+  <main id="main-content" class="container page">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="kicker">Daniel Sobral Blanco · Madrid</p>
+        <h1 id="hero-title">Security engineering, held to a physicist’s <em>standard of proof.</em></h1>
+        <p class="lede">I build the layer that modern cryptography quietly trusts: where <strong>randomness becomes keys</strong>, keys become protocols, and protocols decide what software is allowed to do. Today that means quantum entropy at <strong>Quside</strong>. Before that: hybrid QKD and post-quantum key exchange for TLS and IPsec, QKD control software for a satellite link, and four years in Geneva learning how to measure the distortion of time across the Universe.<sup class="ref"><a href="research.html#ref-8">[8]</a></sup></p>
+        <div class="actions">
+          <a class="button" href="mailto:dasobral93@gmail.com">dasobral93@gmail.com</a>
+          <a class="text-link" href="https://github.com/dasobral" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="text-link" href="https://orcid.org/0000-0001-9559-3651" target="_blank" rel="noopener noreferrer">ORCID</a>
+          <a class="text-link" href="https://www.linkedin.com/in/dasobral" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </div>
-      <div class="hero-footnote"><p>Application Engineer at Quside</p><p class="coordinates">A research mindset.<br>An engineering practice.</p></div>
+
+      <figure class="exhibit" aria-labelledby="exhibit-caption">
+        <div class="exhibit-panel">
+          <p class="exhibit-label">Then — Geneva, 2020–2024</p>
+          <p class="equation" aria-label="d s squared equals a squared times, minus one plus two Psi, d eta squared, plus one minus two Phi, d x squared">
+            <span class="eq-line">ds² = a²[ −(1 + 2<span class="eq-hi">Ψ</span>) dη² + (1 − 2Φ) d<b>x</b>² ]</span>
+          </p>
+          <p class="exhibit-note"><span class="eq-hi">Ψ</span> distorts time. My Ph.D. showed how galaxy surveys can measure it on its own, without assuming how dark matter moves.</p>
+        </div>
+        <div class="exhibit-panel">
+          <p class="exhibit-label">Now — Madrid</p>
+<pre class="exhibit-code" aria-label="Code excerpt"><code><span class="c">// no OS RNG, no cache, no silent fallback</span>
+let rand = QrngRand::new(client);
+<span class="c">// entropy source down ⇒ the protocol stops</span></code></pre>
+          <p class="exhibit-note">Same habit: name the assumption, then refuse to depend on what you can’t verify.</p>
+        </div>
+        <figcaption id="exhibit-caption">Fig. 0 — One method, two fields.</figcaption>
+      </figure>
+
+      <nav class="facts" aria-label="Explore">
+        <a href="projects.html#stack"><span class="facts-label">Stack</span><span class="facts-value">Entropy → keys → protocols → authority</span></a>
+        <a href="projects.html#agent-trust"><span class="facts-label">Code</span><span class="facts-value">Rust · C++ · Python · CUDA, in public</span></a>
+        <a href="research.html"><span class="facts-label">Papers</span><span class="facts-value">9 peer-reviewed · PRD, JCAP, MNRAS&nbsp;Letters, IEEE&nbsp;ISCC</span></a>
+        <a href="#experience"><span class="facts-label">Experience ↓</span><span class="facts-value">Quside · Indra · UC3M · Ph.D. Geneva</span></a>
+      </nav>
     </section>
-    <section class="section container" aria-labelledby="domains-title">
-      <div class="section-heading"><div><span class="section-label">01 / Areas of focus</span><h2 id="domains-title">Three domains.<br>One practice.</h2></div></div>
-      <div class="domain-grid">
-        <article class="domain" data-reveal><span class="index">01</span><h3>Quantum technologies</h3><p>QRNG integration, QKD, PQC, and the protocols that make quantum-safe security practical.</p></article>
-        <article class="domain" data-reveal><span class="index">02</span><h3>Secure software</h3><p>Systems work in C/C++, Rust, and Python, from control planes to TLS, IPsec, and containerized services.</p></article>
-        <article class="domain" data-reveal><span class="index">03</span><h3>Scientific computing</h3><p>Numerical methods, statistical inference, and research software shaped by a Ph.D. in cosmology.</p></article>
+
+    <section class="about-section" id="experience" aria-labelledby="experience-title">
+      <header class="section-head">
+        <p class="section-num">§0</p>
+        <h2 id="experience-title">Experience</h2>
+        <p class="section-intro">From theoretical physics to a university security lab, a defense company and a quantum hardware startup. Each move took me one layer closer to production.</p>
+      </header>
+      <div class="tabs is-row" data-tabs>
+        <nav class="tab-list" aria-label="Experience">
+          <a href="#roles" data-tab>Roles<small>2020 – now</small></a>
+          <a href="#education" data-tab>Education &amp; tools<small>Geneva · Madrid</small></a>
+        </nav>
+
+        <section class="tab-panel" id="roles" aria-labelledby="roles-title">
+        <h3 id="roles-title" class="panel-title">Roles</h3>
+        <ol class="timeline">
+          <li>
+            <p class="when">2026 – now</p>
+            <div><h3>Application Engineer · <span>Quside</span></h3><p>Quantum random number generation for real deployments: entropy infrastructure, CUDA integration, cryptographic applications, and early work on fully homomorphic encryption.</p></div>
+          </li>
+          <li>
+            <p class="when">2025 – 2026</p>
+            <div><h3>Software Engineer · <span>Indra, Cyberdefense &amp; Cryptography</span></h3><p>C++ control-plane software for a GEO-satellite QKD system (GARBO) and its secure key-management workflows.</p></div>
+          </li>
+          <li>
+            <p class="when">2024 – 2025</p>
+            <div><h3>Technical Research Assistant · <span>Universidad Carlos III de Madrid</span></h3><p>Pervasive Computing Lab. Hybrid QKD/PQC for TLS 1.3 and IPsec, with reproducible performance experiments. <a href="research.html#security">Papers [1]–[3]</a>.</p></div>
+          </li>
+          <li>
+            <p class="when">2020 – 2024</p>
+            <div><h3>Doctoral Researcher &amp; Teaching Assistant · <span>University of Geneva</span></h3><p>Relativistic effects in large-scale structure, tests of gravity and dark energy, Fisher forecasts, statistical inference and research software. <a href="research.html#cosmology">Papers [4]–[11]</a>.</p></div>
+          </li>
+        </ol>
+        </section>
+
+        <section class="tab-panel cv-side" id="education" aria-labelledby="education-title">
+          <h3 id="education-title" class="panel-title">Education and tools</h3>
+          <div>
+          <h4>Education</h4>
+          <dl>
+            <dt>Ph.D. Physics, 2024</dt><dd>University of Geneva · Très bien</dd>
+            <dt>M.Sc. Physics, 2020</dt><dd>University of Geneva · Jean Wurth Prize for best M.Sc. thesis</dd>
+            <dt>B.Sc. Fundamental Physics, 2018</dt><dd>Universidad Complutense de Madrid</dd>
+          </dl>
+          </div>
+          <div>
+          <h4>Tools</h4>
+          <dl>
+            <dt>Languages</dt><dd>Rust, C++, C, Python, CUDA, Bash</dd>
+            <dt>Cryptography</dt><dd>ML-KEM, ML-DSA, SLH-DSA, QKD (ETSI 004/014), OpenSSL 3, liboqs, OpenFHE</dd>
+            <dt>Protocols</dt><dd>TLS 1.3, mTLS, IPsec/IKEv2, MLS</dd>
+            <dt>Methods</dt><dd>Statistical inference, numerical methods, machine learning</dd>
+            <dt>Spoken</dt><dd>Spanish (native), English (C1), French (B2)</dd>
+          </dl>
+          </div>
+        </section>
       </div>
     </section>
-    <section class="section container" aria-labelledby="work-title">
-      <div class="section-heading"><div><span class="section-label">02 / Selected work</span><h2 id="work-title">Ideas, made executable.</h2></div><a class="text-link" href="projects.html">All projects <span aria-hidden="true">↗</span></a></div>
-      <div class="work-list">
-        <a class="work-row" href="projects.html#agent-trust" data-reveal><span class="index">01</span><h3>Agent Trust</h3><p>Cryptographic identity, delegated authority, and verifiable agent actions.</p><span class="arrow" aria-hidden="true">↗</span></a>
-        <a class="work-row" href="projects.html#pqc-auth-api" data-reveal><span class="index">02</span><h3>PQC Auth API</h3><p>A reference authentication flow built around ML-DSA challenge–response.</p><span class="arrow" aria-hidden="true">↗</span></a>
-        <a class="work-row" href="projects.html#qaoa-portfolio" data-reveal><span class="index">03</span><h3>QAOA Portfolio</h3><p>Quantum optimization experiments grounded by reproducible classical baselines.</p><span class="arrow" aria-hidden="true">↗</span></a>
-      </div>
-    </section>
-    <section class="section container research-teaser" aria-labelledby="research-title" data-reveal>
-      <div><span class="section-label">03 / Research</span><h2 id="research-title">A research habit<br>that travels.</h2></div>
-      <div class="prose"><p>My Ph.D. research tested gravity and dark energy with relativistic effects in large-scale structure. Today, that same care with models and evidence informs secure systems engineering.</p><a class="text-link" href="research.html">Research &amp; publications <span aria-hidden="true">↗</span></a></div>
-    </section>
-    <section class="contact-section" aria-labelledby="contact-title"><div class="container contact-inner"><div><span class="section-label">Start a conversation</span><h2 id="contact-title">Have an interesting problem?</h2><p>Engineering, research, or a good question at the intersection.</p></div><a class="button secondary" href="mailto:dasobral93@gmail.com">Get in touch <span aria-hidden="true">↗</span></a></div></section>
+
   </main>
-  <footer class="site-footer"><div class="container footer-inner"><div class="footer-credit">© <time data-year>2026</time> Daniel Sobral Blanco<span>Built with curiosity. Based in Madrid.</span></div><div class="footer-links"><a href="https://github.com/dasobral">GitHub ↗</a><a href="https://www.linkedin.com/in/dasobral">LinkedIn ↗</a><a href="https://orcid.org/0000-0001-9559-3651">ORCID ↗</a><a href="mailto:dasobral93@gmail.com">Email ↗</a></div></div></footer>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <time data-year>2026</time> Daniel Sobral Blanco · Madrid</p>
+      <p class="footer-links"><a href="mailto:dasobral93@gmail.com">dasobral93@gmail.com</a><a href="https://github.com/dasobral" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://orcid.org/0000-0001-9559-3651" target="_blank" rel="noopener noreferrer">ORCID</a><a href="https://www.linkedin.com/in/dasobral" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+    </div>
+  </footer>
 </body>
 </html>

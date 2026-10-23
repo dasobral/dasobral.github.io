@@ -3,58 +3,135 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Projects — Daniel Sobral Blanco</title>
-  <meta name="description" content="Selected engineering and research projects by Daniel Sobral Blanco across quantum-safe security, software systems, and scientific computing.">
-  <meta name="theme-color" content="#0b121b">
+  <title>Work — Daniel Sobral Blanco</title>
+  <script>try { const theme = localStorage.getItem('theme'); if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme; } catch (error) {}</script>
+  <meta name="description" content="Daniel Sobral Blanco’s work across the four layers of a secure channel, from QRNG entropy to agent authority: Agent Trust, hybrid QKD for TLS and IPsec, openmls-qrand, and a post-quantum cryptography course.">
+  <meta name="author" content="Daniel Sobral Blanco">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Work — Daniel Sobral Blanco">
+  <meta property="og:description" content="Daniel Sobral Blanco’s work across the four layers of a secure channel, from QRNG entropy to agent authority: Agent Trust, hybrid QKD for TLS and IPsec, openmls-qrand, and a post-quantum cryptography course.">
+  <meta name="theme-color" content="#f5f2ea" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#131312" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/main.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
-  <header class="site-header"><div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="Daniel Sobral Blanco — home"><span class="brand-mark" aria-hidden="true">dsb<span>.</span></span><span class="brand-name">Daniel Sobral<br>Blanco</span></a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">Menu</button>
-    <nav class="site-nav" id="site-navigation" aria-label="Primary navigation"><a href="index.html">Home</a><a href="profile.html">Profile</a><a href="projects.html" aria-current="page">Projects</a><a href="research.html">Research</a><a class="nav-contact" href="mailto:dasobral93@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a></nav>
-  </div></header>
-  <main id="main-content">
-    <section class="page-intro container" aria-labelledby="projects-title">
-      <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Projects / Selected work</p>
-      <h1 id="projects-title">Selected work,<br><em>made concrete.</em></h1>
-      <div class="intro-bottom"><p class="prose">Software and research across cryptographic systems, quantum technologies, agent security, and scientific computing.</p><p class="intro-note">Each project makes its scope and limits explicit.</p></div>
-    </section>
-    <div class="container">
-      <article class="project project-featured" id="agent-trust" aria-labelledby="agent-title">
-        <span class="index">01</span><div class="project-title"><h2 id="agent-title">Agent Trust</h2><p class="meta">Agent security / Rust &amp; Python</p></div>
-        <div class="project-detail"><p>An experimental laboratory for cryptographic agent principals, attenuated delegation, revocation, and authorization–capability coherence.</p><p class="boundary">Research software for studying agent authority, not a production identity platform.</p><div class="actions"><a class="text-link" href="https://github.com/dasobral/agent-trust">Explore Agent Trust <span aria-hidden="true">↗</span></a></div></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Daniel Sobral Blanco — home">dsb<span aria-hidden="true">.</span></a>
+      <nav class="site-nav" aria-label="Primary navigation"><a href="index.html">About</a><a href="projects.html" aria-current="page">Work</a><a href="research.html">Research</a></nav>
+      <div class="header-tools">
+        <button class="theme-toggle" type="button" hidden><span class="theme-icon" aria-hidden="true"></span><span class="theme-label">Theme</span></button>
+        <a class="header-mail" href="mailto:dasobral93@gmail.com">Email</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container page">
+    <header class="page-head">
+      <p class="section-num">§1</p>
+      <h1 id="work-title">Work</h1>
+      <p class="section-intro">A secure channel rests on four layers; a failure in one is invisible from the layer above. I have shipped or published work at each, and every entry says what it proves and what it doesn’t.</p>
+    </header>
+
+    <div class="tabs" data-tabs>
+      <nav class="tab-list" aria-label="Projects">
+        <a href="#stack" data-tab>The stack<small>Fig. 1 · 4 layers</small></a>
+        <a href="#agent-trust" data-tab>Agent Trust<small>Rust · 2026</small></a>
+        <a href="#qkd-kem" data-tab>Hybrid QKD for TLS &amp; IPsec<small>C · 2025</small></a>
+        <a href="#openmls-qrand" data-tab>openmls-qrand<small>Rust · 2026</small></a>
+        <a href="#pqc-course" data-tab>PQC course<small>Teaching · 2026</small></a>
+        <a href="#more" data-tab>More projects<small>5 smaller</small></a>
+      </nav>
+
+      <section class="tab-panel stack-panel" id="stack" aria-labelledby="stack-title">
+        <h2 id="stack-title" class="panel-title">The stack I work on</h2>
+        <figure class="stack-figure" aria-labelledby="stack-caption">
+          <ol class="stack">
+            <li class="layer">
+              <div class="layer-name"><span class="layer-index">4</span><h3>Authority</h3><p>Is this agent actually allowed to do this?</p></div>
+              <p class="layer-work">Cryptographic principals for software agents, attenuated delegation, revocation, and invocation provenance, so a privileged intermediary can’t launder rights.</p>
+              <ul class="evidence"><li><a href="#agent-trust">Agent Trust</a></li><li><a href="https://github.com/dasobral/agent-trust" target="_blank" rel="noopener noreferrer">Rust · OpenMLS</a></li></ul>
+            </li>
+            <li class="layer">
+              <div class="layer-name"><span class="layer-index">3</span><h3>Protocols</h3><p>Can quantum-safe keys enter real protocols?</p></div>
+              <p class="layer-work">Hybrid QKD + PQC key exchange inside TLS 1.3 through OpenSSL providers, and inside IPsec / IKEv2, tested on commercial QKD hardware. Messaging Layer Security, mTLS.</p>
+              <ul class="evidence"><li><a href="#qkd-kem">Hybrid QKD</a></li><li><a href="research.html#ref-1">IEEE ISCC 2025</a></li></ul>
+            </li>
+            <li class="layer">
+              <div class="layer-name"><span class="layer-index">2</span><h3>Keys</h3><p>Where do keys come from, and who can see them?</p></div>
+              <p class="layer-work">C++ control-plane and key-management software for a GEO-satellite QKD system at Indra. ETSI GS QKD 004 / 014, key relay with post-quantum encapsulation, ML-KEM and ML-DSA.</p>
+              <ul class="evidence"><li><a href="research.html#ref-2">Onion-routed key relay</a></li><li><a href="#pqc-course">PQC course</a></li></ul>
+            </li>
+            <li class="layer">
+              <div class="layer-name"><span class="layer-index">1</span><h3>Entropy</h3><p>Is the randomness real, and what if it stops?</p></div>
+              <p class="layer-work">Quantum random number generation at Quside: entropy infrastructure, CUDA integration, cryptographic applications. A fail-closed QRNG provider for OpenMLS.</p>
+              <ul class="evidence"><li><a href="#openmls-qrand">openmls-qrand</a></li><li><a href="index.html#experience">Quside</a></li></ul>
+            </li>
+          </ol>
+          <figcaption id="stack-caption">Fig. 1 — From physical randomness to delegated authority. Read bottom to top; each layer links to its evidence.</figcaption>
+        </figure>
+      </section>
+
+      <article class="tab-panel case" id="agent-trust" aria-labelledby="agent-trust-title">
+        <p class="case-meta">2026 · Rust, Python · OpenMLS, SQLite</p>
+        <h2 id="agent-trust-title">Agent Trust</h2>
+        <p class="case-tagline">Authority for AI agents that can be checked, not assumed.</p>
+        <p>When an agent acts for a user through other agents, ordinary authorization and group membership drift apart. Agent Trust is a laboratory that binds them: a durable kernel orders policy, delegation, release and revocation; a real OpenMLS adapter binds group admission to signed certificates; and an independent Python oracle replays every trace without importing the code it checks.</p>
+<pre class="snippet" aria-label="Confused-deputy rule"><code>child(read) → parent(read,write) → WRITE   <span class="deny">DENY</span>
+parent(read,write) → WRITE                <span class="allow">ALLOW</span></code></pre>
+        <p class="boundary"><span>Boundary</span> Research software. The verifier fails closed, and it still reports <code>full_lap_mls = false</code> because full coupling to MLS isn’t proven yet.</p>
+        <p class="case-links"><a href="https://github.com/dasobral/agent-trust" target="_blank" rel="noopener noreferrer">Source on GitHub ↗</a></p>
       </article>
-      <article class="project" id="pqc-auth-api" aria-labelledby="pqc-auth-title" data-reveal>
-        <span class="index">02</span><div class="project-title"><h2 id="pqc-auth-title">PQC Auth API</h2><p class="meta">Applied cryptography / Python &amp; Rust</p></div>
-        <div class="project-detail"><p>A reference authentication system that enrolls ML-DSA credentials, verifies signed server challenges through pluggable providers, and issues conventional sessions.</p><p class="boundary">A security reference implementation with explicit threat-model and recovery boundaries, not a production identity provider.</p></div>
+
+      <article class="tab-panel case" id="qkd-kem" aria-labelledby="qkd-kem-title">
+        <p class="case-meta">2025 · C, OpenSSL 3 · UC3M</p>
+        <h2 id="qkd-kem-title">Hybrid QKD for TLS and IPsec</h2>
+        <p class="case-tagline">Getting pre-shared quantum keys through protocols built for key exchange.</p>
+        <p>QKD hands you keys in advance; TLS and IKEv2 expect to negotiate them. With the UC3M team I worked on QKD-KEM, an OpenSSL provider that carries QKD into TLS 1.3, including the stateful ETSI 004 interface most work skips, and then its IPsec counterpart, which runs QKD and post-quantum methods in parallel instead of in sequence. On real QKD hardware the parallel design avoided the multiplied latency of sequential hybrids.</p>
+        <p class="boundary"><span>Boundary</span> Two peer-reviewed IEEE ISCC 2025 papers. The IPsec study is a preprint.</p>
+        <p class="case-links"><a href="research.html#ref-1">QKD-KEM [1]</a><a href="research.html#ref-2">Key relay [2]</a><a href="research.html#ref-3">IPsec [3]</a></p>
       </article>
-      <article class="project" id="openmls-qrng" aria-labelledby="qrng-title" data-reveal>
-        <span class="index">03</span><div class="project-title"><h2 id="qrng-title">OpenMLS QRNG</h2><p class="meta">Quantum randomness / Rust</p></div>
-        <div class="project-detail"><p>A reusable bridge from the QRNG Open API to OpenMLS randomness, with TLS/mTLS transport, health monitoring, and fail-closed entropy retrieval.</p><p class="boundary">It replaces the OpenMLS randomness interface, not every randomness path in the cryptographic stack.</p><div class="actions"><a class="text-link" href="https://github.com/dasobral/openmls-qrand">Explore OpenMLS QRNG <span aria-hidden="true">↗</span></a></div></div>
+
+      <article class="tab-panel case" id="openmls-qrand" aria-labelledby="qrand-title">
+        <p class="case-meta">2026 · Rust · OpenMLS, rustls</p>
+        <h2 id="qrand-title">openmls-qrand</h2>
+        <p class="case-tagline">Quantum randomness for group messaging, with no quiet fallback.</p>
+        <p>A small library that supplies OpenMLS with entropy from any QRNG Open API endpoint, such as Quside Entropy Core. It offers plain HTTP, TLS or mutual TLS, optional health polling, and it composes with existing OpenMLS crypto and storage instead of re-implementing them. If the source is unavailable, it fails. It never falls back to <code>/dev/urandom</code>.</p>
+        <p class="boundary"><span>Boundary</span> It covers the OpenMLS randomness interface, not every random draw in the crypto stack beneath it.</p>
+        <p class="case-links"><a href="https://github.com/dasobral/openmls-qrand" target="_blank" rel="noopener noreferrer">Source on GitHub ↗</a></p>
       </article>
-      <article class="project" id="portable-skills" aria-labelledby="skills-title" data-reveal>
-        <span class="index">04</span><div class="project-title"><h2 id="skills-title">Portable Skills</h2><p class="meta">Agent tooling / Python</p></div>
-        <div class="project-detail"><p>A portable source of Agent Skills and Plugins, with adapters that preserve one instruction set across different coding environments.</p><div class="actions"><a class="text-link" href="https://github.com/dasobral/skills">Explore Portable Skills <span aria-hidden="true">↗</span></a></div></div>
+
+      <article class="tab-panel case" id="pqc-course" aria-labelledby="pqc-title">
+        <p class="case-meta">2026 · Spanish · open source</p>
+        <h2 id="pqc-title">Curso de Criptografía Post-Cuántica</h2>
+        <p class="case-tagline">The post-quantum migration, explained to the people who will do it.</p>
+        <p>A free 16-hour course: six topics from Shor’s algorithm to ML-KEM, ML-DSA, SLH-DSA, hybrid TLS and QKD. It includes five in-browser demos and five hands-on labs with liboqs, OpenSSL 3.5 and Qiskit, written in Spanish for engineers who need to migrate real systems.</p>
+        <p class="case-links"><a href="https://dasobral.github.io/curso-pqc/" target="_blank" rel="noopener noreferrer" hreflang="es">Open the course ↗</a><a href="https://github.com/dasobral/curso-pqc" target="_blank" rel="noopener noreferrer">Source ↗</a></p>
       </article>
-      <article class="project" id="qaoa-portfolio" aria-labelledby="qaoa-title" data-reveal>
-        <span class="index">05</span><div class="project-title"><h2 id="qaoa-title">QAOA Portfolio Optimizer</h2><p class="meta">Quantum optimization / Python &amp; Rust</p></div>
-        <div class="project-detail"><p>A reproducible laboratory for QAOA portfolio formulations, classical baselines, benchmark matrices, and evidence-led comparison.</p><p class="boundary">An experimental comparison framework; it makes no claim of quantum advantage.</p><div class="actions"><a class="text-link" href="https://github.com/dasobral/qaoa-portfolio">Explore QAOA Portfolio <span aria-hidden="true">↗</span></a></div></div>
-      </article>
-      <article class="project" id="predictable-darkness" aria-labelledby="darkness-title" data-reveal>
-        <span class="index">06</span><div class="project-title"><h2 id="darkness-title">A Predictable Darkness</h2><p class="meta">Independent research / Computational physics</p></div>
-        <div class="project-detail"><p>A reproducible research note on total solar eclipses over El Bierzo, combining verified ephemerides, computational reconstruction, uncertainty analysis, and publication-ready figures.</p><p class="boundary">Common-Era results are numerically verified; ancient events are treated cautiously because of Delta-T uncertainty.</p></div>
-      </article>
-      <article class="project" id="pqc-course" aria-labelledby="pqc-title" data-reveal>
-        <span class="index">07</span><div class="project-title"><h2 id="pqc-title">Post-Quantum Cryptography Course</h2><p class="meta">Teaching / Spanish</p></div>
-        <div class="project-detail"><p>An accessible Spanish-language introduction to post-quantum cryptography, published with its source material.</p><div class="actions"><a class="text-link" href="https://dasobral.github.io/curso-pqc/" hreflang="es">Open the course <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/dasobral/curso-pqc">Source <span aria-hidden="true">↗</span></a></div></div>
+
+      <article class="tab-panel case" id="more" aria-labelledby="more-title">
+        <p class="case-meta">Smaller and side projects</p>
+        <h2 id="more-title">More projects</h2>
+        <ul class="also">
+          <li><a href="https://github.com/dasobral/qaoa-portfolio" target="_blank" rel="noopener noreferrer">QAOA Portfolio</a><span>Rust QUBO core and PennyLane QAOA, benchmarked against classical baselines.</span></li>
+          <li><strong>PQC Auth API</strong><span>Reference ML-DSA challenge–response enrollment and login.</span></li>
+          <li><a href="https://github.com/dasobral/skills" target="_blank" rel="noopener noreferrer">Portable Skills</a><span>One source of agent skills, adapted for several coding agents.</span></li>
+          <li><a href="https://github.com/dasobral/astrobiases_multipops" target="_blank" rel="noopener noreferrer">astrobiases_multipops</a><span>Research code behind paper [4]: galaxy-correlation multipoles and Fisher forecasts.</span></li>
+          <li><strong>A Predictable Darkness</strong><span>Reconstructing total solar eclipses over El Bierzo, with Delta-T uncertainty.</span></li>
+        </ul>
       </article>
     </div>
-    <section class="contact-section" aria-labelledby="contact-title"><div class="container contact-inner"><div><span class="section-label">Continue exploring</span><h2 id="contact-title">The code is part of the conversation.</h2><p>Read the implementations, examine the assumptions, and get in touch.</p></div><a class="button secondary" href="https://github.com/dasobral">Find me on GitHub <span aria-hidden="true">↗</span></a></div></section>
+
   </main>
-  <footer class="site-footer"><div class="container footer-inner"><div class="footer-credit">© <time data-year>2026</time> Daniel Sobral Blanco<span>Built with curiosity. Based in Madrid.</span></div><div class="footer-links"><a href="https://github.com/dasobral">GitHub ↗</a><a href="https://www.linkedin.com/in/dasobral">LinkedIn ↗</a><a href="https://orcid.org/0000-0001-9559-3651">ORCID ↗</a><a href="mailto:dasobral93@gmail.com">Email ↗</a></div></div></footer>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <time data-year>2026</time> Daniel Sobral Blanco · Madrid</p>
+      <p class="footer-links"><a href="mailto:dasobral93@gmail.com">dasobral93@gmail.com</a><a href="https://github.com/dasobral" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://orcid.org/0000-0001-9559-3651" target="_blank" rel="noopener noreferrer">ORCID</a><a href="https://www.linkedin.com/in/dasobral" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+    </div>
+  </footer>
 </body>
 </html>
